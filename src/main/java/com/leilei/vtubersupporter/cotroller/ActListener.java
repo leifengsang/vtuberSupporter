@@ -3,44 +3,59 @@ package com.leilei.vtubersupporter.cotroller;
 import com.leilei.vtubersupporter.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author leifengsang
  */
-@Controller
+@RestController
+@CrossOrigin
 public class ActListener {
 
     @Autowired
     private ApiService apiService;
 
     @RequestMapping("/api/dead")
-    public void onDead() {
+    public String onDead() {
         apiService.onDead();
+        return "succ";
     }
 
     @RequestMapping("/api/deadExpired")
-    public void onDeadExpired() {
+    public String onDeadExpired() {
         apiService.onDeadExpired();
+        return "succ";
     }
 
     @RequestMapping("/api/damageDown")
-    public void onDamageDown() {
+    public String onDamageDown() {
         apiService.onDamageDown();
+        return "succ";
     }
 
     @RequestMapping("api/damageDownExpired")
-    public void onDamageDownExpired() {
+    public String onDamageDownExpired() {
         apiService.onDamageDownExpired();
+        return "succ";
     }
 
     @RequestMapping("/api/weakness")
-    public void onWeakness() {
+    public String onWeakness() {
         apiService.onWeakness();
+        return "succ";
     }
 
     @RequestMapping("api/weaknessExpired")
-    public void onWeaknessExpired() {
+    public String onWeaknessExpired() {
         apiService.onWeaknessExpired();
+        return "succ";
+    }
+
+    @RequestMapping("api/reset")
+    public String onReset() {
+        apiService.onReset();
+        return "succ";
     }
 }
