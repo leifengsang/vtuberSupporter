@@ -324,26 +324,72 @@ public class ApiService {
     }
 
     public void onDead() {
-        changeMotion(Motion.MOTION_CRY);
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                changeMotion(Motion.MOTION_CRY);
+                break;
+            default:
+                break;
+        }
     }
 
     public void onWeakness() {
-        changeMotion(Motion.MOTION_PIG);
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                changeMotion(Motion.MOTION_PIG);
+                break;
+            default:
+                break;
+        }
     }
 
     public void onDamageDown() {
-        changeMotion(Motion.MOTION_BLACK_FACE);
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                changeMotion(Motion.MOTION_BLACK_FACE);
+                break;
+            default:
+                break;
+        }
     }
 
     public void onDeadExpired() {
-        changeMotion(Motion.MOTION_CRY * -1);
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                changeMotion(Motion.MOTION_CRY * -1);
+                break;
+            default:
+                break;
+        }
     }
 
     public void onDamageDownExpired() {
-        changeMotion(Motion.MOTION_BLACK_FACE * -1);
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                changeMotion(Motion.MOTION_BLACK_FACE * -1);
+                break;
+            default:
+                break;
+        }
     }
 
     public void onWeaknessExpired() {
-        changeMotion(Motion.MOTION_PIG * -1);
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                changeMotion(Motion.MOTION_PIG * -1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void onReset() {
+        switch (model.getModelId()) {
+            case Model.MODEL_ISLAND:
+                cancelAllMotion();
+                break;
+            default:
+                break;
+        }
     }
 }
