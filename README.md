@@ -9,3 +9,5 @@
   * 根据当前时间自动切换表情（白天、夜晚）
 
   * 通过访问指定接口切换动作（例：http://127.0.0.1:2077/api/dead表示角色死亡）
+    * 配套cactbot文件：[vtuberSupporter.js](https://github.com/leifengsang/leileiTechnology/blob/main/cactbot/vtuberSupporter.js)
+  
