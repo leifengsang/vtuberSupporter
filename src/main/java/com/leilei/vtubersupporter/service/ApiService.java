@@ -193,6 +193,8 @@ public class ApiService {
     }
 
     private void addMotion2Queue(int motion) {
+        log.info("往动作队列加入动作：" + motion);
+
         int[] queue = model.getMotionQueue();
         queue = ArrayUtils.add(queue, motion);
         model.setMotionQueue(queue);
@@ -267,8 +269,6 @@ public class ApiService {
             exp = Expression.EXP_EVENING;
         }
 
-        log.info("当前天气对应表情：" + exp);
-
         changeExp(exp);
     }
 
@@ -290,6 +290,8 @@ public class ApiService {
             return;
         }
         int motionId = queue[0];
+        log.info("动作队列当前执行动作：" + motionId);
+
         queue = ArrayUtils.remove(queue, 0);
         //初始化
         if (motionId == Motion.MOTION_INIT || motionId == Motion.MOTION_INIT_ALL) {
@@ -324,6 +326,8 @@ public class ApiService {
     }
 
     public void onDead() {
+        logActAction("onDead");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 changeMotion(Motion.MOTION_CRY);
@@ -334,6 +338,8 @@ public class ApiService {
     }
 
     public void onWeakness() {
+        logActAction("onWeakness");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 changeMotion(Motion.MOTION_PIG);
@@ -344,6 +350,8 @@ public class ApiService {
     }
 
     public void onDamageDown() {
+        logActAction("onDamageDown");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 changeMotion(Motion.MOTION_BLACK_FACE);
@@ -354,6 +362,8 @@ public class ApiService {
     }
 
     public void onDeadExpired() {
+        logActAction("onDeadExpired");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 changeMotion(Motion.MOTION_CRY * -1);
@@ -364,6 +374,8 @@ public class ApiService {
     }
 
     public void onDamageDownExpired() {
+        logActAction("onDamageDownExpired");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 changeMotion(Motion.MOTION_BLACK_FACE * -1);
@@ -374,6 +386,8 @@ public class ApiService {
     }
 
     public void onWeaknessExpired() {
+        logActAction("onWeaknessExpired");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 changeMotion(Motion.MOTION_PIG * -1);
@@ -384,6 +398,8 @@ public class ApiService {
     }
 
     public void onReset() {
+        logActAction("onReset");
+
         switch (model.getModelId()) {
             case Model.MODEL_ISLAND:
                 cancelAllMotion();
@@ -391,5 +407,9 @@ public class ApiService {
             default:
                 break;
         }
+    }
+
+    private void logActAction(String action) {
+        log.info("收到来自act的调用：" + action);
     }
 }
