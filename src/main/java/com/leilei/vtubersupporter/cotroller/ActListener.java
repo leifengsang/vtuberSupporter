@@ -42,7 +42,7 @@ public class ActListener {
 
     @RequestMapping("/api/weakness")
     public String onWeakness() {
-        //还不知道复活起来是咋判定的，先在黑头前调用一下
+        //先在黑头前调用一下死亡过期
         apiService.onDeadExpired();
         apiService.onWeakness();
         return "succ";
