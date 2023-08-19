@@ -286,7 +286,7 @@ public class ApiService {
         long lastMotionChangeTime = model.getLastMotionChangeTime();
         long now = new Date().getTime();
         //动作切换需要时间，不能重复切换
-        if (now - lastMotionChangeTime < Model.MOTION_CHANGE_TIME_INTERVAL) {
+        if (now - lastMotionChangeTime < model.getMotionChangeWaitingTime()) {
             return;
         }
         int motionId = queue[0];

@@ -21,8 +21,6 @@ import java.util.Map;
 @Log4j2
 public class Model implements InitializingBean {
 
-    public static final long MOTION_CHANGE_TIME_INTERVAL = DateUtils.MILLIS_PER_SECOND * 2;
-
     /**
      * 模型
      */
@@ -37,6 +35,11 @@ public class Model implements InitializingBean {
      * 当前使用的模型Id
      */
     private int modelId;
+
+    /**
+     * 动作切换等待时间
+     */
+    private int motionChangeWaitingTime;
 
     /**
      * 表情配置json
@@ -97,6 +100,14 @@ public class Model implements InitializingBean {
 
     public void setModelId(int modelId) {
         this.modelId = modelId;
+    }
+
+    public int getMotionChangeWaitingTime() {
+        return motionChangeWaitingTime;
+    }
+
+    public void setMotionChangeWaitingTime(int motionChangeWaitingTime) {
+        this.motionChangeWaitingTime = motionChangeWaitingTime;
     }
 
     public String getExpDicJson() {
