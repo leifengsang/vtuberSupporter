@@ -8,8 +8,8 @@ public class Motion {
     /**
      * 动作
      */
-    public static final int MOTION_INIT = -1; //初始化
-    public static final int MOTION_INIT_ALL = -2; //初始化（包含可同时存在的动作）
+    public static final int MOTION_INIT = -999; //初始化
+    public static final int MOTION_INIT_ALL = -9999; //初始化（包含可同时存在的动作）
 
     public static final int MOTION_CRY = 4; //哭
     public static final int MOTION_BLACK_FACE = 5; //黑脸
